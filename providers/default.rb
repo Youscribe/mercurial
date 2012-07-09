@@ -15,6 +15,8 @@ action :sync do
   execute "sync update permissions #{new_resource.path}" do
     command "chmod -R #{new_resource.mode} #{new_resource.path}"
   end
+
+  new_resource.updated_by_last_action(true)
 end
  
 action :clone do
@@ -31,4 +33,6 @@ action :clone do
   execute "update permissions #{new_resource.path}" do
     command "chmod -R #{new_resource.mode} #{new_resource.path}"
   end
+
+  new_resource.updated_by_last_action(true)
 end
