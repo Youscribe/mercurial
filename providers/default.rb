@@ -3,6 +3,7 @@ def windows?
 end
 
 action :sync do
+  raise "Sync is not supported in windows" if windows?
   execute "sync repository #{new_resource.path}" do
     not_if "hg identify #{new_resource.path}"
     command "hg clone -e 'ssh -i #{new_resource.key} -o StrictHostKeyChecking=no' #{new_resource.repository} #{new_resource.path}"
@@ -22,6 +23,7 @@ action :sync do
 end
 
 action :clone do
+  raise "Clone is not supported in windows" if windows?
   execute "clone repository #{new_resource.path}" do
     not_if "hg identify #{new_resource.path}"
     command "hg clone -e 'ssh -i #{new_resource.key} -o StrictHostKeyChecking=no' #{new_resource.repository} #{new_resource.path}"
