@@ -1,5 +1,9 @@
+def windows?
+  node[:platform] == "windows"
+end
+
 action :sync do
-  execute "sync repository #{new_resource.path}" do    
+  execute "sync repository #{new_resource.path}" do
     not_if "hg identify #{new_resource.path}"
     command "hg clone -e 'ssh -i #{new_resource.key} -o StrictHostKeyChecking=no' #{new_resource.repository} #{new_resource.path}"
   end
@@ -16,7 +20,7 @@ action :sync do
     command "chmod -R #{new_resource.mode} #{new_resource.path}"
   end
 end
- 
+
 action :clone do
   execute "clone repository #{new_resource.path}" do
     not_if "hg identify #{new_resource.path}"

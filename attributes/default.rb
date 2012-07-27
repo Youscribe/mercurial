@@ -17,14 +17,9 @@
 # limitations under the License.
 #
 
-case node[:platform]
-when "windows"
-  windows_package "Mercurial" do
-    source node[:hg][:url]
-    action :install
-  end
-else
-  package "mercurial" do
-    action :upgrade
-  end
+case platform
+when 'windows'
+  set[:hg][:version] = "2.2.3"
+  set[:hg][:winplatform] = 'x64'
+  set[:hg][:url] = "http://mercurial.selenic.com/release/windows/mercurial-#{node[:hg][:version]}-#{node[:hg][:winplatform]}.msi.exe"
 end
