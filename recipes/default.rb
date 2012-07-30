@@ -21,6 +21,7 @@ case node[:platform]
 when "windows"
   windows_package "Mercurial" do
     source node[:hg][:url]
+    not_if "hg"
     action :install
   end
 else
