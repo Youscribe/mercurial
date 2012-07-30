@@ -49,6 +49,12 @@ mercurial
       action :sync
     end
 
+    mercurial "c:/inetpub/wwwroot/chef-site" do
+      repository "ssh://user:password@bitbucket.org/niallsco/chef-hg"
+      reference "tip"
+      action :sync
+    end
+
 License and Author
 ==================
 
