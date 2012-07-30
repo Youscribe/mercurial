@@ -19,7 +19,7 @@
 
 case platform
 when 'windows'
-  set[:hg][:version] = "2.2.3"
-  set[:hg][:winplatform] = 'x64'
-  set[:hg][:url] = "http://mercurial.selenic.com/release/windows/mercurial-#{node[:hg][:version]}-#{node[:hg][:winplatform]}.msi"
+  default[:hg][:version] = "2.2.3"
+  default[:hg][:winplatform] = 'x64'
+  default[:hg][:url] = "http://mercurial.selenic.com/release/windows/mercurial-#{node[:hg][:version]}-#{node[:hg][:winplatform]}.msi"
 end
