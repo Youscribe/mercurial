@@ -7,3 +7,8 @@ attribute :key, :kind_of => String
 attribute :owner, :kind_of => String
 attribute :group, :kind_of => String
 attribute :mode, :kind_of => String, :default => '0775'
+
+def initialize(*args)
+  super
+  @action = :sync
+end

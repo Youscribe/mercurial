@@ -35,6 +35,8 @@ action :sync do
       command "chmod -R #{new_resource.mode} #{new_resource.path}"
     end
   end
+
+  new_resource.updated_by_last_action(true)
 end
 
 action :clone do
@@ -59,4 +61,6 @@ action :clone do
       command "chmod -R #{new_resource.mode} #{new_resource.path}"
     end
   end
+
+  new_resource.updated_by_last_action(true)
 end
