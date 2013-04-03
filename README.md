@@ -6,14 +6,38 @@ Installs mercurial
 Requirements
 ============
 
-A package named "mercurial" must exist in the platform package
-management system.
+Cookbooks
+---------
+
+* python
+
+Attributes
+==========
+
+* `node["hg"]["install_method"]` - method to install mercurial with, you can choose from "package" and "pip". default `package`.
 
 Usage
 =====
 
+default
+-------
+
 Install mercurial to make sure it is available to check out code from
 mercurial repositories.
+method to install mercurial should be changed with `node["hg"]["install_method"]`.
+
+package
+-------
+
+Installs mercurial from packages.
+
+A package named "mercurial" must exist in the platform package
+management system.
+
+pip
+---
+
+Installs mercurial from pip.
 
 Resource/Provider
 =================
@@ -42,7 +66,7 @@ mercurial
 
 ### Example
 
-	mercurial "/home/site/checkouts/www" do
+    mercurial "/home/site/checkouts/www" do
       repository "ssh://hg@bitbucket.org/niallsco/chef-hg"
       reference "tip"
       key "/home/site/.ssh/keyname"
@@ -52,9 +76,16 @@ mercurial
 License and Author
 ==================
 
-Author:: Joshua Timberman <joshua@opscode.com>
+Mercurial LWRP originally by: Niall Napier <niall@napes.co.uk>
 
-Copyright:: 2009, Opscode, Inc
+* https://bitbucket.org/niallsco/chef-cookbooks
+
+Author:: Joshua Timberman <joshua@opscode.com>
+Author:: Mark Roddy <markroddy@gmail.com>
+Author:: Takeshi KOMIYA <i.tkomiya@gmail.com>
+Author:: Guilhem Lettron <guilhem@lettron.fr>
+
+Copyright:: 2009-2013, Opscode, Inc
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

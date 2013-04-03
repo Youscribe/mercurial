@@ -1,8 +1,8 @@
 #
-# Cookbook Name:: mercurial
-# Recipe:: default
+# Cookbook Name:: mercurial_test
+# Recipe:: pip
 #
-# Copyright 2009, Opscode, Inc.
+# Copyright 2013, Opscode, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,4 +17,4 @@
 # limitations under the License.
 #
 
-include_recipe "mercurial::#{node['hg']['install_method']}"
+include_recipe "mercurial::pip"

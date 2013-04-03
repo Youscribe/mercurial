@@ -1,8 +1,8 @@
-def hgupFile
+def hgup_file
   return ::File.join(Chef::Config[:file_cache_path],"hgup")
 end
 
-def hgConnectionCommand
+def hg_connection_command
   case node['plateform']
   when "windows"
     cmd = ""
